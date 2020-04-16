@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+    id "org.springframework.boot" version "2.0.1.RELEASE"
+}
+
+group 'org.example'
+version '7.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    task stage(dependsOn: ['build', 'clean'])
+    build.mustRunAfter clean
+    implementation 'org.springframework.boot:spring-boot-dependencies:2.0.1.RELEASE'
+
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
